@@ -1,0 +1,22 @@
+/* Identité NGF – LOKAA. Clair = crème sable, sombre = noir profond. */
+:root {
+  --bg: #F5EBD7; --surface: #FBF4E6; --surface-2: #EFE2C7;
+  --text: #1A1612; --muted: #6B5E4C; --line: rgba(160, 118, 30, .35);
+  --green: #1F6B4F; --terra: #C2693E; --on-green: #FBF4E6;
+  --danger: #A3321F; --gold-text: #8A5E10;
+  --gold: linear-gradient(135deg, #B8862B 0%, #F3D27A 45%, #C9962F 100%);
+  --kente: repeating-linear-gradient(90deg, #1F6B4F 0 14px, #C2693E 14px 22px, #D9A93F 22px 26px, #1A1612 26px 34px);
+  --radius: 18px; --radius-sm: 12px;
+  --font-title: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0A0A09; --surface: #15130F; --surface-2: #1F1B14;
+    --text: #F3E9D2; --muted: #A89B82; --line: rgba(233, 190, 90, .28);
+    --green: #34D399; --terra: #D9805A; --on-green: #06241A;
+    --danger: #F08A75; --gold-text: #E9BE5A;
+    --kente: repeating-linear-gradient(90deg, #34D399 0 14px, #C2693E 14px 22px, #E9BE5A 22px 26px, #0A0A09 26px 34px);
+  }
+}

@@ -1,0 +1,17 @@
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; cursor: pointer; text-decoration: none; }
+.btn-gold { background: var(--gold); color: #1A1612; border-color: transparent; }
+.btn-green { background: var(--green); color: var(--on-green); border-color: transparent; }
+.btn-block { width: 100%; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; }
+.skel { border-radius: var(--radius-sm); background: linear-gradient(90deg, var(--surface-2), var(--surface), var(--surface-2)); background-size: 200% 100%; animation: skel 1.4s infinite; }
+@keyframes skel { to { background-position: -200% 0; } }
+.state { text-align: center; padding: 40px 16px; }
+.state p { color: var(--muted); }
+.state-error h2 { color: var(--danger); }
+.field { display: block; margin-bottom: 14px; }
+.field > span { display: block; font-weight: 600; margin-bottom: 4px; }
+.field small { display: block; color: var(--muted); margin-top: 4px; }
+.input { width: 100%; min-height: 48px; padding: 0 14px; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--surface); }
+.msg-error { color: var(--danger); font-weight: 600; margin: 8px 0; }
+.msg-ok { color: var(--green); font-weight: 600; margin: 8px 0; }

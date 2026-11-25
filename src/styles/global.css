@@ -1,0 +1,10 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { min-height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 var(--font-body); -webkit-text-size-adjust: 100%; }
+h1, h2, h3 { font-family: var(--font-title); line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: 1.7rem; } h2 { font-size: 1.3rem; }
+a { color: var(--green); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--terra); outline-offset: 2px; }
+.page { max-width: 640px; margin: 0 auto; padding: 20px 16px 40px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

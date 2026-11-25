@@ -1,0 +1,11 @@
+.auth-wrap { max-width: 440px; margin: 0 auto; padding: 24px 16px 48px; }
+.auth-wrap .lead { color: var(--muted); margin-bottom: 20px; }
+.auth-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; text-align: center; }
+.steps { color: var(--gold-text); font-weight: 600; margin-bottom: 6px; }
+.roles { display: grid; gap: 10px; margin-bottom: 16px; }
+.role { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); cursor: pointer; }
+.role input { margin-top: 4px; accent-color: var(--green); }
+.role.on { border: 2px solid var(--terra); }
+.role small { display: block; color: var(--muted); }
+.row { display: flex; gap: 10px; }
+.row > * { flex: 1; }
