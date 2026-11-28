@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { Menu, X, Home, Search, CalendarCheck, Package, Truck, ShieldCheck, User, LogIn, LogOut } from 'lucide-react'
+import { Menu, X, Home, Search, CalendarCheck, Package, Truck, ShieldCheck, User, LogIn, LogOut, Palette } from 'lucide-react'
 import { useAuth } from '../../features/auth/AuthContext'
 import { supabase } from '../../lib/supabase'
 import './layout.css'
@@ -61,6 +61,9 @@ export default function Layout() {
                 <Icon size={22} aria-hidden="true" /> {label}
               </NavLink>
             ))}
+            <button className="nav-link" onClick={() => { setOpen(false); window.NGFTheme && window.NGFTheme.open() }}>
+              <Palette size={22} aria-hidden="true" /> Apparence
+            </button>
             {session && (
               <button className="nav-link" onClick={async () => { await signOut(); navigate('/') }}>
                 <LogOut size={22} aria-hidden="true" /> Se déconnecter

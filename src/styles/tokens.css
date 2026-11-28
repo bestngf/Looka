@@ -1,22 +1,84 @@
-/* Identité NGF – LOKAA. Clair = crème sable, sombre = noir profond. */
+/* Identité NGF v2 – LOKAA (lumineuse, personnalisable). Couleur de départ : domaine « Location ». */
+/* NGF · Identité v2 — lumineuse, élégante, personnalisable.
+   Tout est piloté par des variables : l'utilisateur règle, l'appli suit.
+   Variables de réglage (posées par ngf-theme.js) : --ngf-accent, --ngf-on-accent, --ngf-r, --ngf-text, --ngf-motif */
 :root {
-  --bg: #F5EBD7; --surface: #FBF4E6; --surface-2: #EFE2C7;
-  --text: #1A1612; --muted: #6B5E4C; --line: rgba(160, 118, 30, .35);
-  --green: #1F6B4F; --terra: #C2693E; --on-green: #FBF4E6;
-  --danger: #A3321F; --gold-text: #8A5E10;
-  --gold: linear-gradient(135deg, #B8862B 0%, #F3D27A 45%, #C9962F 100%);
-  --kente: repeating-linear-gradient(90deg, #1F6B4F 0 14px, #C2693E 14px 22px, #D9A93F 22px 26px, #1A1612 26px 34px);
-  --radius: 18px; --radius-sm: 12px;
+  --ngf-accent: #6D28D9;          /* couleur du domaine, remplacée par le réglage de l'utilisateur */
+  --ngf-on-accent: #FFFFFF;
+  --ngf-r: 18px; --ngf-text: 1; --ngf-motif: .10;
+
+  --bg: #171A26; --surface: #20243A; --surface-2: #2A2F4A;
+  --text: #F4F1EA; --muted: #A9ADC2; --line: rgba(240, 199, 94, .30);
+  --gold: linear-gradient(135deg, #B8862B 0%, #F3D27A 48%, #C9962F 100%);
+  --gold-text: #F0C75E; --ok: #4ADE80; --warn: #FBBF24; --danger: #FB7185;
+  --accent: var(--ngf-accent);
+  --accent-soft: color-mix(in srgb, var(--accent) 11%, var(--bg));
+  --accent-line: color-mix(in srgb, var(--accent) 35%, transparent);
+  --shadow: 0 1px 2px rgba(60, 40, 10, .06), 0 8px 24px rgba(60, 40, 10, .07);
+  --radius: var(--ngf-r); --radius-sm: calc(var(--ngf-r) * .62);
   --font-title: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: light dark;
+  color-scheme: dark;
 }
+/* Sombre doux : gris-bleu nuit lumineux (pas noir), couleurs vives */
+:root[data-ngf-mode="sombre"] { color-scheme: light; --bg: #FBF8F2; --surface: #FFFFFF; --surface-2: #F4EFE5;
+  --text: #1B1712; --muted: #6F675A; --line: rgba(150, 115, 40, .26); --gold-text: #8A5E10;
+  --ok: #15803D; --warn: #B45309; --danger: #B91C1C;
+  --accent: color-mix(in srgb, var(--ngf-accent) 76%, white);
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--bg));
+  --shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 28px rgba(0,0,0,.28); }
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0A0A09; --surface: #15130F; --surface-2: #1F1B14;
-    --text: #F3E9D2; --muted: #A89B82; --line: rgba(233, 190, 90, .28);
-    --green: #34D399; --terra: #D9805A; --on-green: #06241A;
-    --danger: #F08A75; --gold-text: #E9BE5A;
-    --kente: repeating-linear-gradient(90deg, #34D399 0 14px, #C2693E 14px 22px, #E9BE5A 22px 26px, #0A0A09 26px 34px);
-  }
+  :root[data-ngf-mode="auto"] { color-scheme: dark; --bg: #171A26; --surface: #20243A; --surface-2: #2A2F4A;
+    --text: #F4F1EA; --muted: #A9ADC2; --line: rgba(240, 199, 94, .30); --gold-text: #F0C75E;
+    --ok: #4ADE80; --warn: #FBBF24; --danger: #FB7185;
+    --accent: color-mix(in srgb, var(--ngf-accent) 76%, white);
+    --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--bg));
+    --shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 28px rgba(0,0,0,.28); }
 }
+
+html { font-size: calc(16px * var(--ngf-text)); }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); margin: 0; }
+h1, h2, h3 { font-family: var(--font-title); letter-spacing: -.01em; }
+
+/* Motif africain en décor : losanges et chevrons dorés, très légers. Réglé par --ngf-motif (0 = aucun). */
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--ngf-motif);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23B8862B' stroke-width='2'%3E%3Cpath d='M32 6 58 32 32 58 6 32Z'/%3E%3Cpath d='M32 18 46 32 32 46 18 32Z'/%3E%3Cpath d='M0 0 8 8M64 0 56 8M0 64 8 56M64 64 56 56'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='3' fill='%23B8862B'/%3E%3C/svg%3E");
+  background-size: 64px 64px; }
+
+/* Bandeau d'identité (kente fin) */
+.ngf-kente { height: 6px; background: repeating-linear-gradient(90deg, var(--accent) 0 16px, #D9A93F 16px 22px, var(--text) 22px 26px, #D9A93F 26px 32px); opacity: .9; }
+.ngf-sep { border: 0; height: 10px; margin: 18px 0; opacity: calc(.25 + var(--ngf-motif) * 4);
+  background: repeating-linear-gradient(135deg, var(--gold-text) 0 2px, transparent 2px 9px); mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+
+/* Composants de base */
+.ngf-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+.ngf-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--accent); color: var(--ngf-on-accent); font-weight: 700; font-size: 1rem; box-shadow: 0 4px 14px var(--accent-line); }
+.ngf-btn.gold { background: var(--gold); color: #2A1D05; box-shadow: 0 4px 14px rgba(184, 134, 43, .35); }
+.ngf-btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent-line); box-shadow: none; }
+.ngf-chip { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: .85rem; font-weight: 600; border: 1px solid var(--accent-line); }
+.ngf-input { width: 100%; box-sizing: border-box; min-height: 46px; padding: 0 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--line); background: var(--surface); color: var(--text); font: inherit; }
+.ngf-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.ngf-gold-line { position: relative; overflow: hidden; }
+.ngf-gold-line::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--gold); }
+
+/* Panneau « Apparence » */
+.ngf-ap-scrim { position: fixed; inset: 0; background: rgba(10, 10, 20, .45); z-index: 9998; }
+.ngf-ap { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; max-height: 88vh; overflow: auto; background: var(--surface); color: var(--text);
+  border-radius: 24px 24px 0 0; padding: 18px 18px 28px; box-shadow: 0 -10px 40px rgba(0,0,0,.25); max-width: 560px; margin: 0 auto; }
+.ngf-ap h2 { margin: 0 0 4px; font-size: 1.3rem; } .ngf-ap h3 { margin: 18px 0 8px; font-size: .95rem; font-family: var(--font-body); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.ngf-ap .row { display: flex; flex-wrap: wrap; gap: 8px; }
+.ngf-ap .opt { min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface-2); color: var(--text); cursor: pointer; font: inherit; }
+.ngf-ap .opt[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+.ngf-ap .sw { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--surface); box-shadow: 0 0 0 1.5px var(--line); cursor: pointer; padding: 0; }
+.ngf-ap .sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--text); }
+.ngf-ap input[type=color] { width: 48px; height: 40px; border: 0; background: none; padding: 0; }
+.ngf-ap input[type=range] { width: 100%; accent-color: var(--accent); }
+.ngf-ap .preset { flex: 1 1 140px; text-align: left; padding: 10px 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--line); background: var(--bg); color: var(--text); cursor: pointer; font: inherit; }
+.ngf-ap .preset[aria-pressed="true"] { border-color: var(--accent); }
+.ngf-ap .preset i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: -2px; }
+.ngf-ap .foot { display: flex; gap: 10px; margin-top: 20px; }
+
+/* LOKAA : anciens noms → identité v2 */
+:root{ --green:var(--accent); --terra:color-mix(in srgb,var(--accent) 60%,#C2693E); --on-green:var(--ngf-on-accent);
+  --kente:repeating-linear-gradient(90deg,var(--accent) 0 14px,#D9A93F 14px 22px,var(--text) 22px 26px,#D9A93F 26px 32px); }

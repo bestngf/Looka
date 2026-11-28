@@ -9,9 +9,9 @@
 .drawer-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .nav-link { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 12px; border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-weight: 600; background: none; border: 0; width: 100%; cursor: pointer; text-align: left; }
 .nav-link.active { background: var(--surface-2); color: var(--gold-text); }
-.splash { position: fixed; inset: 0; z-index: 100; background: #0A0A09; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; animation: splash-out .5s 2.1s forwards; }
+.splash { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; animation: splash-out .5s 2.1s forwards; }
 .splash-ngf { font-family: var(--font-title); font-size: 4.5rem; font-weight: 700; letter-spacing: .12em; background: linear-gradient(135deg, #B8862B, #F3D27A, #C9962F); -webkit-background-clip: text; background-clip: text; color: transparent; animation: fade 1s ease-out both; }
-.splash-sub { color: #E9D9B0; letter-spacing: .1em; animation: fade 1s .9s ease-out both; }
+.splash-sub { color: var(--muted); letter-spacing: .1em; animation: fade 1s .9s ease-out both; }
 .splash-kente { position: absolute; bottom: 0; left: 0; right: 0; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
 @keyframes splash-out { to { opacity: 0; visibility: hidden; } }
